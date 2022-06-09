@@ -1,0 +1,2 @@
+export const buttonPrimary =
+    'btn ml-5 bg-red-500 text-white  rounded-[34px] border-none font-normal py-[11px] px-[26px]  shadow-[0px_20px_24px_3px_rgba(251,161,40,0.42)]  bg-gradient-to-r from-[#fdc50f] to-[#fb982f]   hover:bg-white hover:cursor-pointer hover:text-black '
