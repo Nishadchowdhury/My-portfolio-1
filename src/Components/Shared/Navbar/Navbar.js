@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const [navOpen, setVavOpen] = useState('navigation');
 
-    const [header, setHeader] = useState('noHeader');
+    const [header, setHeader] = useState('navigation');
 
     const navToggle = () => {
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     }
 
     return (
-        <section>
+        <section className='lg:hidden fixed z-50 '>
             <nav class={` ${navOpen.includes('navigation-open') ? 'headerGray' : 'noHeader'} ${header}`}>
 
                 <div class={navOpen}>
@@ -44,10 +44,28 @@ const Navbar = () => {
                     </section>
 
                     <ul class="navigation__ul">
-                        <li onClick={navToggle}><Link to="/">HOME</Link></li>
-                        <li onClick={navToggle}><Link to="/About">About Me</Link></li>
-                        <li onClick={navToggle}><Link to="/">CLIENT</Link></li>
-                        <li onClick={navToggle}><Link to="/">FAQ</Link></li>
+                        <li onClick={navToggle}><a href="/#home">HOME</a></li>
+                        <li onClick={navToggle}><a href="/#Projects">Projects</a></li>
+                        <li onClick={navToggle}><a href="/#aboutMe">About Me</a></li>
+                        <li onClick={navToggle}><Link to="/blogs">Blogs</Link></li>
+                        <li onClick={navToggle}>
+
+
+                            <a
+                                href="javascript:void(
+        window.open(
+          'https://form.jotform.com/221594871934466',
+          'blank',
+          'scrollbars=yes,
+          toolbar=no,
+          width=700,
+          height=500'
+        )
+      )
+    ">
+                                Contact me
+                            </a>
+                        </li>
                     </ul>
 
                     <section class="navigation__social">
@@ -70,7 +88,6 @@ const Navbar = () => {
                 </div>
 
             </nav>
-            {/* <script src="https://code.jquery.com/jquery-3.3.1.js"></script> */}
         </section>
     );
 };

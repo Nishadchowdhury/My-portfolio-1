@@ -39,9 +39,7 @@ section {
     transition: all 800ms cubic-bezier(.9, 0, .33, 1);
 }
 
-.noHeader {
-    transition: all 800ms cubic-bezier(.9, 0, .33, 1);
-}
+
 
 .headerGray {
     background: rgb(149, 149, 149, 1);

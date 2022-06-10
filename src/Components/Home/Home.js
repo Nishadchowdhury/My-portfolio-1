@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import './Home.scss'
 import { buttonPrimary } from '../Shared/Classes/NavbarClasses';
 import Github from '../../assets/img/github.png'
 import LinkdIn from '../../assets/img/linkedin.png'
@@ -9,75 +10,149 @@ import body from '../../assets/img/boy.png'
 import thumbUp from '../../assets/img/thumbup.png'
 import glassImojie from '../../assets/img/glassesimoji.png'
 import crown from '../../assets/img/crown.png'
+import FloatingDiv from '../FloatingDiv/FloatingDiv';
+import Services from '../Services/Services';
 
+
+import Resume from '../../assets/resume/Resume_Nishad.pdf'
+import MyPortFolio from '../MyPortFolio';
+import Contactme from '../Dlt/Contactme';
+import Animatedletters from '../Animation/Animatedletters';
+import AboutMe from '../Blogs/AboutMe';
 
 const Home = () => {
 
-    const iRight = 'flex flex-1 flex-col justify-evenly '
-    const iLeft = 'flex flex-1 relative items-center justify-center '
-    const name = 'flex flex-col gap-4'
+    const [letterClass, setletterClass] = useState('text-animate');
+    const HiArray = ['H', 'y', '!', ' ', 'I', ' ', 'a', 'm'];
+    const nameArray = ['N', 'i', 's', 'h', 'a', 'd', ' ', 'C', 'h', 'o', 'w', 'd', 'h', 'u', 'r', 'y']
 
-    /* className='
-    
-    
-    
-    ' */
+    useEffect(() => {
+        return setTimeout(() => {
+            setletterClass('text-animate-hover')
+        }, 4000)
+    }, [])
 
     return (
-        <div className='flex h-[77vh] mx-24 bg-red-00'>
+        <>
+            <div id='home' className='flex lg:flex-row flex-col lg:h-[77vh] h-auto mx-4  lg:mx-24 bg-red-00'>
 
-            <div className={iRight}>
+                <div className={'flex lg:order-1 order-5  flex-1 flex-col justify-evenly mt-10 '}>
 
-                <div className={name}>
-                    <span className='text-5xl font-bold '>Hy! I am </span>
-                    <span className='text-orange-400 text-5xl font-bold ' >Nishad Chowdhury</span>
-                    <span className='text-slate-400 text-sm ' >Frontend Developer with high level of experience in web designing and development, producting the Quality work</span>
+                    <div className={'flex flex-col gap-4'}>
 
-                    <button className={`${buttonPrimary} inline w-40`}>
-                        Hire Me
-                    </button>
+                        <h2 className='text-5xl font-bold '>
+                            <Animatedletters
+                                letterClass={letterClass}
+                                strArray={HiArray}
+                                idx={15}
+                            />
+                        </h2>
 
-                    <div className='flex mt-5 '>
+                        <h2 className='text-orange-400 text-4xl lg:text-5xl font-bold Gumela' >
+                            <Animatedletters
+                                letterClass={letterClass}
+                                strArray={nameArray}
+                                idx={23}
+                            />
+                        </h2>
+                        <span className='text-slate-400 text-sm Gumela' >Frontend Developer with high level of experience in web designing and development, producting the Quality work</span>
 
-                        <a href="">   <img src={Github} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
-                        <a href="">     <img src={LinkdIn} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
-                        <a href="">     <img src={Insta} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
+
+                        <button className={`${buttonPrimary} inline w-40`}>
+                            Hire Me
+                        </button>
+
+                        <div className='flex lg:justify-start justify-center mt-5 '>
+
+                            <a href="https://github.com/Nishadchowdhury" target={"_blank"}  >   <img src={Github} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
+                            <a href="https://www.linkedin.com/in/nishadchowdhury/" target={"_blank"}  >     <img src={LinkdIn} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
+                            <a href="#home" target={""}  >     <img src={Insta} className='w- scale-50 hover:cursor-pointer' alt="" /> </a>
 
 
 
 
+                        </div>
                     </div>
+
                 </div>
 
+                {/* left start */}
+
+                <div className='lg:flex lg:mt-0 mt-10 lg:flex-1 lg:order-2 order-1 lg:h-auto h-[650px] relative items-center border-[1p x] border-orange-400 justify-center '>
+
+                    <img src={Vector1}
+                        className='absolute bluePng scale-[0.80] lg:scale-[0.69] lg:left-[-15%] lg:top-[5.2%] top-[25%]' alt="" />
+
+
+                    <img src={Vector2} className='absolute yellowPng scale-[0.77] lg:top-[3.4rem] top-[25%] lg:left-[-1rem]' alt="" />
+
+
+                    <img src={body} className='absolute me scale-[.8] lg:top-[7%] top-[20%]' alt="" />
+
+                    <img
+                        data-aos="zoom-in"
+                        data-aos-duration="1000"
+                        data-aos-mirror="true"
+
+                        src={glassImojie} className='absolute lg:block hidden top-2 lg:left-[-170px] scale-75' alt="" />
+
+                    <div className='absolute  lg:top-12 top-[34rem]  lg:right-0 right-[.7rem] '
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                        data-aos-mirror="true"
+                    >
+                        <FloatingDiv image={crown} txt1='web' txt2='Developer' />
+                    </div>
+
+
+                    <div className='absolute lg:bottom-2  lg:top-[30rem]  lg:left-[60px]  top-[20px] '
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-mirror="true"
+                    >
+                        <FloatingDiv image={thumbUp} txt1='Provides Best' txt2='Design' />
+                    </div>
+
+
+
+                    <div className='blur-2xl absolute w-[22rem] h-56 rounded-full bg-gray-200 -z-20 top-0 lg:right-[-6rem]' > </div>
+
+                    <div className='blur-2xl absolute lg:w-[22rem] w-56 h-56 rounded-full bg-sky-200 -z-20 bottom-[-70px] lg:left-[-1.7rem] right-[-0.3rem] '  > </div>
+
+                </div>
+
+
             </div>
 
-            {/* left start */}
+            {/* <Services /> */}
 
-            <div className={iLeft}>
-
-                top 5.2
-                left -15%
-                scl 0.69
-
-                scal .77
-                left -1rem
-                t 3.4rem
-
-
-                top 20%
-                scal 1.4
-
-                <img src={Vector1} className='absolute scale-[0.69] left-[-15%] top-[5.2%]' alt="" />
-
-
-                <img src={Vector2} className='absolute scale-[0.77] top-[3.4rem] left-[-1rem]' alt="" />
-
-
-                <img src={body} className='absolute scale-[1.4] top-[20%]' alt="" />
+            <div className='flex justify-center mt-10' >
+                <a href={Resume} download >
+                    <button className={`${buttonPrimary} w-40 `}>
+                        Get resume ↓
+                    </button>
+                </a>
 
             </div>
+            <h4 className='text-xl mt-10 font-bold text-orange-400  text-center border-t-[1px] border-orange-400 ' >
+                Some Of my Projects
+            </h4>
+            <div className='mt-10' >
+                <MyPortFolio />
+            </div>
 
-        </div>
+            <div>
+                <AboutMe />
+            </div>
+
+
+            <div className='mt-10' >
+                <Contactme />
+            </div>
+
+
+
+        </>
     );
 };
 
